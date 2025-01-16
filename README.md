@@ -1,1 +1,1 @@
-#Java learnin' app
+«Java learning application»
