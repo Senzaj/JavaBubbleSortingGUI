@@ -12,12 +12,11 @@ public class BubbleSorter implements IBubbleSorting {
         int tempNextNumber;
         int tempCurrentNumber;
 
-        while (unsortedArrayPart > 0) {
+        while (unsortedArrayPart > 1) {
 
             for (int i = 0; i < unsortedArrayPart - 1; i++) {
-                maxNumber = 0;
-                tempNextNumber = intArray[i + 1];
                 tempCurrentNumber = intArray[i];
+                tempNextNumber = intArray[i + 1];
 
                 if (tempNextNumber < tempCurrentNumber) {
                     intArray[i + 1] = tempCurrentNumber;
@@ -29,7 +28,7 @@ public class BubbleSorter implements IBubbleSorting {
                 }
             }
 
-            if (intArray[intArray.length -1] == maxNumber){
+            if (intArray[unsortedArrayPart - 1] == maxNumber){
                 unsortedArrayPart--;
             }
         }
