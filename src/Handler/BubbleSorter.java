@@ -12,6 +12,8 @@ public class BubbleSorter implements IBubbleSorting {
         int tempNextNumber;
         int tempCurrentNumber;
 
+        //TODO: Require UNIT-TEST
+
         while (unsortedArrayPart > 1) {
 
             for (int i = 0; i < unsortedArrayPart - 1; i++) {
@@ -23,14 +25,12 @@ public class BubbleSorter implements IBubbleSorting {
                     intArray[i] = tempNextNumber;
                     maxNumber = tempCurrentNumber;
                 }
-                else{
+                else
                     maxNumber = tempNextNumber;
-                }
             }
 
-            if (intArray[unsortedArrayPart - 1] == maxNumber){
+            if (intArray[unsortedArrayPart - 1] == maxNumber)
                 unsortedArrayPart--;
-            }
         }
 
         return intArray;
