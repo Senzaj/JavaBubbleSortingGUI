@@ -1,2 +1,2 @@
-# Java learning application
-### simple bubble sorting algorithm with GUI
+# Simple bubble sorting algorithm with GUI
+### Primitive application for learning the basics of Java
