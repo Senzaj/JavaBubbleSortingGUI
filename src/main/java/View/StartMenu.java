@@ -3,7 +3,6 @@ package View;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
-import java.util.Objects;
 
 public class StartMenu extends JFrame {
 
@@ -14,12 +13,12 @@ public class StartMenu extends JFrame {
     private JButton start, stop;
     private final int width, height;
 
-    public StartMenu(String winTitle, String iconPath, int w, int h) {
+    public StartMenu(String winTitle, Image icon, int w, int h) {
         super(winTitle);
 
         width = w;
         height = h;
-        iconFile = new ImageIcon(Objects.requireNonNull(StartMenu.class.getResource(iconPath)));
+        iconFile = new ImageIcon(icon);
         setIconImage(iconFile.getImage());
         setSize(width, height);
 
