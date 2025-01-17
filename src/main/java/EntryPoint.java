@@ -8,6 +8,8 @@ public class EntryPoint {
         TestArrayAndShowResult();
     }
 
+    //TODO: Requires Unit-tests
+
     private static void TestArrayAndShowResult(){
         List<Integer> intList = Arrays.asList(5, 3, 8, 1, 2);
         ISorter<Integer> sorter = new IntegerBubbleSorter();

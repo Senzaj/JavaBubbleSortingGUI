@@ -4,6 +4,8 @@ import java.util.List;
 
 public class BubbleSorter<T extends Comparable<T>> implements ISorter<T> {
 
+    boolean shouldSort;
+
     @Override
     public List<T> Sort(List<T> unsortedList) {
 
@@ -11,22 +13,26 @@ public class BubbleSorter<T extends Comparable<T>> implements ISorter<T> {
             return unsortedList;
         }
 
-        boolean shouldSort = true;
-
-        while (shouldSort) {
+        do {
             shouldSort = false;
-            for (int i = 0; i < unsortedList.size() - 1; i++) {
-
-                if (unsortedList.get(i).compareTo(unsortedList.get(i + 1)) > 0) {
-
-                    T temp = unsortedList.get(i);
-                    unsortedList.set(i, unsortedList.get(i + 1));
-                    unsortedList.set(i + 1, temp);
-                    shouldSort = true;
-                }
-            }
+            IterateBubbleSorting(unsortedList);
         }
+        while (shouldSort);
 
         return unsortedList;
+    }
+
+    protected void IterateBubbleSorting(List<T> list){
+
+        for (int i = 0; i < list.size() - 1; i++) {
+
+            if (list.get(i).compareTo(list.get(i + 1)) > 0) {
+
+                T temp = list.get(i);
+                list.set(i, list.get(i + 1));
+                list.set(i + 1, temp);
+                shouldSort = true;
+            }
+        }
     }
 }
