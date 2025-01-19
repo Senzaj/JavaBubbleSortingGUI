@@ -1,9 +1,13 @@
+import Handler.Randomizer.IRandomizer;
+import Handler.Randomizer.IntegerRandomizer;
 import Handler.Sorting.ISorter;
 import Handler.Sorting.IntegerBubbleSorter;
-import java.util.Arrays;
+
+import java.util.ArrayList;
 import java.util.List;
 
 public class EntryPoint {
+
     public static void main(String[] args) {
         TestArrayAndShowResult();
     }
@@ -11,10 +15,15 @@ public class EntryPoint {
     //TODO: Requires Unit-tests
 
     private static void TestArrayAndShowResult(){
-        List<Integer> intList = Arrays.asList(5, 3, 8, 1, 2);
         ISorter<Integer> sorter = new IntegerBubbleSorter();
-        List<Integer> sortedList = sorter.Sort(intList);
+        IRandomizer<Integer> randomizer = new IntegerRandomizer();
+        int minValue = 0;
+        int maxValue = 10;
+        int length = 12;
 
-        System.out.println("Sorted Integer List: " + sortedList);
+        List<Integer> list = new ArrayList<>(randomizer.GetRandomList(minValue, maxValue, length));
+
+        System.out.println("Unsorted Integer List: " + list);
+        System.out.println("Sorted Integer List: " + sorter.Sort(list));
     }
 }

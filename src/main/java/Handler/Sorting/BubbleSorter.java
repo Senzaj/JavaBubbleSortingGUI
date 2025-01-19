@@ -2,7 +2,7 @@ package Handler.Sorting;
 
 import java.util.List;
 
-public class BubbleSorter<T extends Comparable<T>> implements ISorter<T> {
+public abstract class BubbleSorter<T extends Comparable<T>> implements ISorter<T> {
 
     boolean shouldSort;
 
