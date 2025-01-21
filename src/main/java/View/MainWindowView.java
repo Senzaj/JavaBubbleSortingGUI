@@ -28,9 +28,9 @@ public class MainWindowView {
     }
 
     public void DrawWindow() {
-        StartMenu startMenu = CreateStartMenu();
-        ConfigureStartMenu(startMenu);
-        startMenu.setVisible(true);
+        MainFrame mainFrame = CreateStartMenu();
+        ConfigureStartMenu(mainFrame);
+        mainFrame.setVisible(true);
     }
 
     private Image loadIcon(String path) {
@@ -43,8 +43,8 @@ public class MainWindowView {
         }
     }
 
-    private StartMenu CreateStartMenu() {
-        return new StartMenu(menuName, icon, minWidth, minHeight);
+    private MainFrame CreateStartMenu() {
+        return new MainFrame(menuName, icon, minWidth, minHeight);
     }
 
     private void ConfigureStartMenu(JFrame frame) {

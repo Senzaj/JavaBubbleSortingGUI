@@ -4,7 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
 
-public class StartMenu extends JFrame {
+public class MainFrame extends JFrame {
 
     private final String StartButtonText = "Start";
     private final String SettingsButtonText = "Settings";
@@ -13,7 +13,7 @@ public class StartMenu extends JFrame {
     private JButton start, stop;
     private final int width, height;
 
-    public StartMenu(String winTitle, Image icon, int w, int h) {
+    public MainFrame(String winTitle, Image icon, int w, int h) {
         super(winTitle);
 
         width = w;

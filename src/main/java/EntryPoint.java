@@ -2,6 +2,7 @@ import Handler.Randomizer.IRandomizer;
 import Handler.Randomizer.IntegerRandomizer;
 import Handler.Sorting.ISorter;
 import Handler.Sorting.IntegerBubbleSorter;
+import View.MainWindowView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,10 +10,15 @@ import java.util.List;
 public class EntryPoint {
 
     public static void main(String[] args) {
-        TestArrayAndShowResult();
+        StartProgram();
     }
 
     //TODO: Requires Unit-tests
+
+    private static void StartProgram(){
+        MainWindowView mainView = new MainWindowView();
+        mainView.DrawWindow();
+    }
 
     private static void TestArrayAndShowResult(){
         ISorter<Integer> sorter = new IntegerBubbleSorter();
