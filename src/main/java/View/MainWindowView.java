@@ -1,36 +1,80 @@
 package View;
 
+import View.Elements.Frame;
+import View.Elements.Button;
+import View.Elements.Label;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.Objects;
 import javax.swing.*;
 import java.awt.*;
-import java.util.Objects;
 
-public class MainWindowView {
+public class MainWindowView implements ActionListener {
 
     private static final String DEFAULT_MENU_NAME = "Sorter";
+    private static final String DEFAULT_ICON_PATH = "/images/ProgramIcon.png";
     private static final int DEFAULT_MIN_WIDTH = 500;
     private static final int DEFAULT_MIN_HEIGHT = 500;
-    private static final String DEFAULT_ICON_PATH = "/images/ProgramIcon.png";
 
     private final Image icon;
     private final String menuName;
     private final int minWidth;
     private final int minHeight;
 
+    private Frame mainFrame;
+    private JPanel startPanel;
+    private JPanel resultPanel;
+
     public MainWindowView(String menuName, int minWidth, int minHeight, String iconPath) {
         this.icon = loadIcon(iconPath);
         this.menuName = menuName;
         this.minWidth = minWidth;
         this.minHeight = minHeight;
+        mainFrame = CreateStartMenu();
+        ConfigureStartMenu(mainFrame);
     }
 
     public MainWindowView() {
         this(DEFAULT_MENU_NAME, DEFAULT_MIN_WIDTH, DEFAULT_MIN_HEIGHT, DEFAULT_ICON_PATH);
+        mainFrame = CreateStartMenu();
+        ConfigureStartMenu(mainFrame);
     }
 
     public void DrawWindow() {
-        MainFrame mainFrame = CreateStartMenu();
-        ConfigureStartMenu(mainFrame);
         mainFrame.setVisible(true);
+    }
+
+    public void SetStartPanel(){
+        if (startPanel == null) {
+
+            startPanel = new JPanel();
+            startPanel.setLayout(new GridBagLayout());
+
+            GridBagConstraints grid = new GridBagConstraints();
+            grid.fill = GridBagConstraints.HORIZONTAL;
+            grid.insets = new Insets(10, 5, 5, 5);
+            int rowCounter = 0;
+
+            Label label = new Label("Bubble Sorting", 60);
+            AddElementToGrid(startPanel, label, grid, rowCounter++);
+            Button buttonSetManually = CreateButton("Set Manually");
+            AddElementToGrid(startPanel, buttonSetManually, grid, rowCounter++);
+            Button buttonSetRandomly = CreateButton("Set Randomly");
+            AddElementToGrid(startPanel, buttonSetRandomly, grid, rowCounter);
+        }
+
+        mainFrame.add(startPanel);
+        mainFrame.revalidate();
+    }
+
+    public void SetResultPanel(){
+        if (resultPanel == null) {
+            //TODO: Create result JPanel
+        }
+
+        mainFrame.add(resultPanel);
+        mainFrame.revalidate();
     }
 
     private Image loadIcon(String path) {
@@ -43,13 +87,28 @@ public class MainWindowView {
         }
     }
 
-    private MainFrame CreateStartMenu() {
-        return new MainFrame(menuName, icon, minWidth, minHeight);
+    private Frame CreateStartMenu() {
+        return new Frame(menuName, icon, minWidth, minHeight);
     }
 
     private void ConfigureStartMenu(JFrame frame) {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setMinimumSize(new Dimension(minWidth, minHeight));
         frame.setLocationRelativeTo(null);
+    }
+
+    private Button CreateButton(String name){
+        return new Button(name, 330, 100, 42);
+    }
+
+    private void AddElementToGrid(JPanel panel ,JComponent element ,GridBagConstraints grid, int rowCounter){
+        grid.gridx = 0;
+        grid.gridy = rowCounter;
+        panel.add(element, grid);
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent event) {
+
     }
 }

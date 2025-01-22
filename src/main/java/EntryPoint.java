@@ -17,6 +17,8 @@ public class EntryPoint {
 
     private static void StartProgram(){
         MainWindowView mainView = new MainWindowView();
+
+        mainView.SetStartPanel();
         mainView.DrawWindow();
     }
 
