@@ -17,6 +17,9 @@ public class MainWindowView implements ActionListener {
     private static final int DEFAULT_MIN_WIDTH = 500;
     private static final int DEFAULT_MIN_HEIGHT = 500;
 
+    private static final String ACTION_CLICK_MANUALLY_BTN = "ManuallyButtonClicked";
+    private static final String ACTION_CLICK_RANDOMLY_BTN = "RandomlyButtonClicked";
+
     private final Image icon;
     private final String menuName;
     private final int minWidth;
@@ -24,7 +27,6 @@ public class MainWindowView implements ActionListener {
 
     private Frame mainFrame;
     private JPanel startPanel;
-    private JPanel resultPanel;
 
     public MainWindowView(String menuName, int minWidth, int minHeight, String iconPath) {
         this.icon = loadIcon(iconPath);
@@ -59,21 +61,16 @@ public class MainWindowView implements ActionListener {
             Label label = new Label("Bubble Sorting", 60);
             AddElementToGrid(startPanel, label, grid, rowCounter++);
             Button buttonSetManually = CreateButton("Set Manually");
+            buttonSetManually.setActionCommand(ACTION_CLICK_MANUALLY_BTN);
+            buttonSetManually.addActionListener(this);
             AddElementToGrid(startPanel, buttonSetManually, grid, rowCounter++);
             Button buttonSetRandomly = CreateButton("Set Randomly");
+            buttonSetRandomly.setActionCommand(ACTION_CLICK_RANDOMLY_BTN);
+            buttonSetRandomly.addActionListener(this);
             AddElementToGrid(startPanel, buttonSetRandomly, grid, rowCounter);
         }
 
         mainFrame.add(startPanel);
-        mainFrame.revalidate();
-    }
-
-    public void SetResultPanel(){
-        if (resultPanel == null) {
-            //TODO: Create result JPanel
-        }
-
-        mainFrame.add(resultPanel);
         mainFrame.revalidate();
     }
 
@@ -110,5 +107,12 @@ public class MainWindowView implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent event) {
 
+        if (Objects.equals(event.getActionCommand(), ACTION_CLICK_MANUALLY_BTN)){
+
+        }
+
+        if (Objects.equals(event.getActionCommand(), ACTION_CLICK_RANDOMLY_BTN)){
+
+        }
     }
 }

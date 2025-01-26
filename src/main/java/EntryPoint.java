@@ -9,11 +9,11 @@ import java.util.List;
 
 public class EntryPoint {
 
+    //TODO: Requires Unit-tests
+
     public static void main(String[] args) {
         StartProgram();
     }
-
-    //TODO: Requires Unit-tests
 
     private static void StartProgram(){
         MainWindowView mainView = new MainWindowView();
