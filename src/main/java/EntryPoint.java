@@ -1,3 +1,5 @@
+import Handler.IProgram;
+import Handler.Program;
 import Handler.Randomizer.IRandomizer;
 import Handler.Randomizer.IntegerRandomizer;
 import Handler.Sorting.ISorter;
@@ -9,17 +11,12 @@ import java.util.List;
 
 public class EntryPoint {
 
+    private static final IProgram program = new Program();
+
     //TODO: Requires Unit-tests
 
     public static void main(String[] args) {
-        StartProgram();
-    }
-
-    private static void StartProgram(){
-        MainWindowView mainView = new MainWindowView();
-
-        mainView.SetStartPanel();
-        mainView.DrawWindow();
+        program.Start();
     }
 
     private static void TestArrayAndShowResult(){
