@@ -144,6 +144,7 @@ public class MainWindowView implements ActionListener {
         }
 
         if (Objects.equals(event.getActionCommand(), ACTION_ENTERED_ARRAY)){
+
             //TODO: Проверка наличия чисел и их кастинга в массив
         }
 
