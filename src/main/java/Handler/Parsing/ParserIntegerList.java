@@ -9,6 +9,7 @@ public class ParserIntegerList extends Parser<List<Integer>>{
     @Override
     protected ParsingParams<List<Integer>> OnSuccess(ParsingParams params) {
         //TODO: Парсить в список интов через разделитель
+        String separator = params.Separator;
         return params;
     }
 
